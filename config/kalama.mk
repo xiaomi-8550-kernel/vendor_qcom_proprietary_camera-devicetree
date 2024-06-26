@@ -1,17 +1,27 @@
 dtbo-$(CONFIG_ARCH_KALAMA) := kalama-camera.dtbo
+
+ifeq ($(CONFIG_TARGET_PRODUCT_BABYLON),y)
+dtbo-y += babylon-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_FUXI),y)
+dtbo-y += fuxi-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_ISHTAR),y)
+dtbo-y += ishtar-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_NUWA),y)
+dtbo-y += nuwa-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_SHENG),y)
+dtbo-y += sheng-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_SOCRATES),y)
+dtbo-y += socrates-sm8550-camera-sensor.dtbo
+else ifeq ($(CONFIG_TARGET_PRODUCT_VERMEER),y)
+dtbo-y += vermeer-sm8550-camera-sensor.dtbo
+else
 dtbo-$(CONFIG_ARCH_KALAMA) += kalama-camera-sensor-cdp.dtbo \
 								kalama-camera-sensor-mtp.dtbo \
 								kalama-camera-sensor-qrd.dtbo \
 								kalama-camera-sensor-hdk.dtbo \
 								kalama-sg-hhg-camera.dtbo \
-								kalama-sg-hhg-camera-sensor.dtbo \
-								nuwa-sm8550-camera-sensor.dtbo \
-								fuxi-sm8550-camera-sensor.dtbo \
-								socrates-sm8550-camera-sensor.dtbo \
-								ishtar-sm8550-camera-sensor.dtbo \
-								babylon-sm8550-camera-sensor.dtbo \
-								vermeer-sm8550-camera-sensor.dtbo \
-								sheng-sm8550-camera-sensor.dtbo
+								kalama-sg-hhg-camera-sensor.dtbo
+endif
 
 dtbo-$(CONFIG_ARCH_CROW) += crow-camera.dtbo \
 				crow-camera-sensor-idp.dtbo \
